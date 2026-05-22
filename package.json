@@ -1,0 +1,35 @@
+{
+  "name": "ez_accounting_backend_express",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Kareemedw/EZ_Accounting_Backend_Express#readme",
+  "bugs": {
+    "url": "https://github.com/Kareemedw/EZ_Accounting_Backend_Express/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kareemedw/EZ_Accounting_Backend_Express.git"
+  },
+  "license": "ISC",
+  "author": "Kareem Edwards",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint . ",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.10.2",
+    "eslint-plugin-import": "^2.32.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^2.8.8"
+  }
+}
