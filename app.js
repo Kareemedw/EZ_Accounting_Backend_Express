@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { PORT = 4001 } = process.env;
+const cors = require("cors");
 const app = express();
 
 mongoose
@@ -9,6 +10,12 @@ mongoose
     console.log("Connected to DB");
   })
   .catch(console.error);
+
+const routes = require("./routes");
+
+app.use(cors());
+app.use(express.json());
+app.use("/", routes);
 
 app.listen(PORT, () => {
   console.log(`App is listening at ${PORT}`);
