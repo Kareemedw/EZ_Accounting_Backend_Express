@@ -1,6 +1,11 @@
 const router = require("express").Router();
 
-const { createBill, getBill, deleteBill } = require("../controllers/bills");
+const {
+  createBill,
+  getBill,
+  updateBill,
+  deleteBill,
+} = require("../controllers/bills");
 
 //Create
 router.post("/", createBill);
@@ -9,8 +14,9 @@ router.post("/", createBill);
 router.get("/", getBill);
 
 //Update
+router.patch("/:billCardId", updateBill);
 
 //Delete
-router.delete("/:billCardsId", deleteBill);
+router.delete("/:billCardId", deleteBill);
 
 module.exports = router;

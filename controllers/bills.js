@@ -34,6 +34,33 @@ const getBill = (req, res) => {
     });
 };
 
+const updateBill = (req, res) => {
+  const { billCardId } = req.params;
+
+  Bill.findByIdAndUpdate(billCardId, req.body, {
+    new: true,
+    runValidators: true,
+  })
+    .orFail()
+    .then((billCard) => res.status(200).send({ data: billCard }))
+    .catch((err) => {
+      console.error(err);
+      if (err.name === "CastError") {
+        return res
+          .status(BAD_REQUEST_STATUS_CODE)
+          .send({ message: "Invalid item ID" });
+      }
+      if (err.name === "DocumentNotFoundError") {
+        return res
+          .status(ITEM_NOT_FOUND)
+          .send({ message: "Requested resource not found" });
+      }
+      return res
+        .status(INTERNAL_SERVER_ERROR)
+        .send({ message: "Internal Server Error!!" });
+    });
+};
+
 const deleteBill = (req, res) => {
   const { billCardId } = req.params;
 
@@ -58,4 +85,4 @@ const deleteBill = (req, res) => {
     });
 };
 
-module.exports = { createBill, getBill, deleteBill };
+module.exports = { createBill, getBill, updateBill, deleteBill };

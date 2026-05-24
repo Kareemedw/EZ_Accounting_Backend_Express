@@ -27,6 +27,11 @@ const bill = new mongoose.Schema({
   dueDate: {
     type: Date,
   },
+
+  date: {
+    type: String,
+    default: "",
+  },
 });
 
 module.exports = mongoose.model("Bill", bill);

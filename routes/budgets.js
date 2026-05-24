@@ -14,7 +14,7 @@ router.post("/", createCard);
 router.get("/", getItems);
 
 //Update
-router.put("/:cardId", updateCard);
+router.patch("/:cardId", updateCard);
 
 //Delete
 router.delete("/:cardId", deleteCard);

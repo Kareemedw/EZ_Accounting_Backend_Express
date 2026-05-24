@@ -10,14 +10,15 @@ const createCard = (req, res) => {
   console.log(req);
   console.log(req.body);
 
-  const { name, salary, utilityBills, recurringbills, additionalBills } =
+  const { name, salary, date, utilityBills, recurringBills, additionalBills } =
     req.body;
 
   Budget.create({
     name,
+    date,
     salary,
     utilityBills,
-    recurringbills,
+    recurringBills,
     additionalBills,
   })
     .then((card) => {
