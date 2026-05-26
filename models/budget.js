@@ -13,6 +13,16 @@ const budget = new mongoose.Schema({
     default: 0,
   },
 
+  currentBalance: {
+    type: Number,
+    default: 0,
+  },
+
+  date: {
+    type: String,
+    default: "",
+  },
+
   utilityBills: [
     {
       name: {
@@ -22,6 +32,14 @@ const budget = new mongoose.Schema({
       price: {
         type: Number,
         default: 0,
+      },
+      currentBalance: {
+        type: Number,
+        default: 0,
+      },
+      paid: {
+        type: Boolean,
+        default: false,
       },
     },
   ],
@@ -36,6 +54,14 @@ const budget = new mongoose.Schema({
         type: Number,
         default: 0,
       },
+      currentBalance: {
+        type: Number,
+        default: 0,
+      },
+      paid: {
+        type: Boolean,
+        default: false,
+      },
     },
   ],
 
@@ -48,6 +74,14 @@ const budget = new mongoose.Schema({
       price: {
         type: Number,
         default: 0,
+      },
+      currentBalance: {
+        type: Number,
+        default: 0,
+      },
+      paid: {
+        type: Boolean,
+        default: false,
       },
     },
   ],

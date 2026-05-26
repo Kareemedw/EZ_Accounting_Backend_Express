@@ -10,13 +10,21 @@ const createCard = (req, res) => {
   console.log(req);
   console.log(req.body);
 
-  const { name, salary, date, utilityBills, recurringBills, additionalBills } =
-    req.body;
+  const {
+    name,
+    salary,
+    date,
+    currentBalance,
+    utilityBills,
+    recurringBills,
+    additionalBills,
+  } = req.body;
 
   Budget.create({
     name,
     date,
     salary,
+    currentBalance,
     utilityBills,
     recurringBills,
     additionalBills,
@@ -47,7 +55,7 @@ const updateCard = (req, res) => {
   const { cardId } = req.params;
 
   Budget.findByIdAndUpdate(cardId, req.body, {
-    new: true,
+    returnDocument: "after",
     runValidators: true,
   })
     .orFail()
