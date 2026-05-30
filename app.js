@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { PORT = 4001 } = process.env;
 const cors = require("cors");
+const path = require("path");
 const app = express();
 
 mongoose
@@ -14,6 +15,7 @@ mongoose
 const routes = require("./routes");
 
 app.use(cors());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.json());
 app.use("/", routes);
 

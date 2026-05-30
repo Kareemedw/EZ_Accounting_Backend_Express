@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 //const validator = require("validator");
 
 const budget = new mongoose.Schema({
+  isOpen: {
+    type: Boolean,
+    default: false,
+  },
   name: {
     type: String,
     required: true,
@@ -40,6 +44,44 @@ const budget = new mongoose.Schema({
       paid: {
         type: Boolean,
         default: false,
+      },
+    },
+  ],
+
+  groceryBudget: {
+    type: Number,
+    default: 0,
+  },
+
+  groceryItems: [
+    {
+      id: String,
+      name: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        default: 0,
+      },
+    },
+  ],
+
+  trainPassBudget: {
+    type: Number,
+    default: 0,
+  },
+
+  trainPassItems: [
+    {
+      id: String,
+      name: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        default: 0,
       },
     },
   ],
