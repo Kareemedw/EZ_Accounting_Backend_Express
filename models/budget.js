@@ -6,6 +6,17 @@ const budget = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+
+  isBillsOpen: {
+    type: Boolean,
+    default: false,
+  },
+
+  isExtraBillsOpen: {
+    type: Boolean,
+    default: false,
+  },
+
   name: {
     type: String,
     required: true,
@@ -73,6 +84,25 @@ const budget = new mongoose.Schema({
   },
 
   trainPassItems: [
+    {
+      id: String,
+      name: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        default: 0,
+      },
+    },
+  ],
+
+  carPaymentBudget: {
+    type: Number,
+    default: 0,
+  },
+
+  carPaymentItems: [
     {
       id: String,
       name: {
