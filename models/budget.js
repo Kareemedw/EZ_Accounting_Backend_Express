@@ -33,8 +33,13 @@ const budget = new mongoose.Schema({
     default: 0,
   },
 
-  date: {
-    type: String,
+  startDate: {
+    type: Date,
+    default: "",
+  },
+
+  endDate: {
+    type: Date,
     default: "",
   },
 
